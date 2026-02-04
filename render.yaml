@@ -1,3 +1,5 @@
+runtime: python
+python_version: "3.11"
 services:
   - type: web
     name: Telegram Bot
