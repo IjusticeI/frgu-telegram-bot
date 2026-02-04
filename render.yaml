@@ -2,7 +2,7 @@ runtime: python
 python_version: "3.11"
 services:
   - type: web
-    name: Telegram Bot
+    name: frgu-telegram-bot
     plan: free
     runtime: python3.11  # ← ВАЖНО: явно указываем версию!
     buildCommand: pip install -r requirements.txt
@@ -16,3 +16,4 @@ services:
     secretFiles:
       - path: dialogflow-key.json
         name: dialogflow-key.json
+
