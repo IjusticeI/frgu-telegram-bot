@@ -1,16 +1,16 @@
 services:
   - type: web
-    name: telegram-dialogflow-bot
-    runtime: python
-    env: production
+    name: Telegram Bot
     plan: free
-    region: oregon
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python bot.py"
+    runtime: python3.11  # ← ВАЖНО: явно указываем версию!
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
     envVars:
       - key: PORT
         value: 5000
       - key: TELEGRAM_TOKEN
-        generateValue: true
-      - key: DIALOGFLOW_PROJECT_ID
-        generateValue: true
+        fromFile: true
+        secret: true
+    secretFiles:
+      - path: dialogflow-key.json
+        name: dialogflow-key.json
