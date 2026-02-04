@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: telegram-dialogflow-bot
+    runtime: python
+    env: production
+    plan: free
+    region: oregon
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: TELEGRAM_TOKEN
+        generateValue: true
+      - key: DIALOGFLOW_PROJECT_ID
+        generateValue: true
